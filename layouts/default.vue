@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <IframeChild>
     <nuxt />
-  </div>
+  </IframeChild>
 </template>
 
 <style>
@@ -53,3 +53,11 @@ html {
   background-color: #35495e;
 }
 </style>
+
+<script>
+import IframeChild from '../components/IframeChild'
+
+export default {
+  components: { IframeChild }
+}
+</script>
