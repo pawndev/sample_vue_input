@@ -9,15 +9,15 @@ export default {
   name: 'IframeChild',
   provide() {
     return {
-      iframe: this.iframe,
+      iframe: this.iframe
     }
   },
   data() {
     return {
       iframe: {
         params: {},
-        emit: this.postMessage,
-      },
+        emit: this.postMessage
+      }
     }
   },
   mounted() {
@@ -31,21 +31,18 @@ export default {
       this.postMessage('iframeUrl', location.href)
     }
 
-    window.setDataFromParent = data => this.setDataFromParent(data)
+    window.setDataFromParent = (data) => this.setDataFromParent(data)
 
     this.postMessage('mounted')
   },
   methods: {
     postMessage(type, payload) {
-      parent.window.postMessage(
-        { fromIframe: true, type, payload },
-        '*',
-      )
+      parent.window.postMessage({ fromIframe: true, type, payload }, '*')
     },
 
     setDataFromParent(data) {
-      this.iframe.params = { ...data };
+      this.iframe.params = { ...data }
     }
-  },
+  }
 }
 </script>
