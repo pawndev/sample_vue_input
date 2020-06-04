@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <div>
+      {{ iframe.params }}
       <basic-form>
         <basic-input></basic-input>
       </basic-form>
@@ -13,6 +14,7 @@ import BasicForm from '~/components/BasicForm.vue'
 import BasicInput from '~/components/BasicInput.vue'
 
 export default {
+  inject: ['iframe'],
   components: {
     BasicForm,
     BasicInput
