@@ -31,9 +31,11 @@ export default {
       this.postMessage('iframeUrl', location.href)
     }
 
-    window.setDataFromParent = (data) => this.setDataFromParent(data)
+    const setDataFromParent = data => this.setDataFromParent(data)
+    
+    window.setDataFromParent = setDataFromParent
 
-    this.postMessage('mounted')
+    this.postMessage('mounted', { setDataFromParent })
   },
   methods: {
     postMessage(type, payload) {
